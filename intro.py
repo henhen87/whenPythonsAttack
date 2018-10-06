@@ -20,3 +20,16 @@ elif len(lis) < 0:
 
 if len(tupple) > 0:
 	print('tupple length is greater than 0')
+
+s = set();
+
+s.add('set');
+s.add('is another');
+s.add('data type');
+s.add('where each');
+s.add('value in the set');
+s.add('must be unique');
+s.add(1);
+s.add(2);
+
+print(s)

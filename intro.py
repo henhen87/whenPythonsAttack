@@ -33,3 +33,10 @@ s.add(1);
 s.add(2);
 
 print(s)
+
+obj = {"t1": "this is a", "t2": " dictionary data type"}
+obj['t3'] = 'It is similar to Objects in JS. There is bracket notation'
+obj["t4"] = 777
+
+print(obj)
+print(obj['t4'])

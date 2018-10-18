@@ -12,7 +12,7 @@ print(tupple);
 
 lis = ['this', 'is', 'a', 'list', 1, 2, 3];
 print(lis);
-
+getName();
 if len(lis) > 0:
 	print('list length is greater than 0');
 elif len(lis) < 0:
@@ -40,3 +40,14 @@ obj["t4"] = 777
 
 print(obj)
 print(obj['t4'])
+
+def getName():
+	print('Please enter your name');
+	name2 = input();
+	printName(name2);
+
+def printName(name):
+	print('The name that was entered is {}'.format(name))
+
+# getName();
+print('Name 1 {} Name 2 {}'.format(name, name2))

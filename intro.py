@@ -12,7 +12,7 @@ print(tupple);
 
 lis = ['this', 'is', 'a', 'list', 1, 2, 3];
 print(lis);
-getName();
+# getName();
 if len(lis) > 0:
 	print('list length is greater than 0');
 elif len(lis) < 0:
@@ -42,12 +42,20 @@ print(obj)
 print(obj['t4'])
 
 def getName():
-	print('Please enter your name');
+	print('Please enter your name function');
 	name2 = input();
 	printName(name2);
 
 def printName(name):
 	print('The name that was entered is {}'.format(name))
 
-# getName();
-print('Name 1 {} Name 2 {}'.format(name, name2))
+getName();
+# print('Name 1 {} Name 2 {}'.format(name, name2))
+# name2 is undfined since it is only in the scope of getName() function
+
+class Printer:
+	def __init__(self, name):
+		self.name = name
+
+className = Printer('Elena')
+print(f'Class Name is: {className.name}')

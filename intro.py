@@ -28,9 +28,11 @@ s.add('is another');
 s.add('data type');
 s.add('where each');
 s.add('value in the set');
-s.add('must be unique');
+s.add('is unique');
 s.add(1);
 s.add(2);
+s.add(2);
+s.add('adding the same value twice such as 2 will not change the length of set')
 
 print(s)
 
@@ -45,9 +47,11 @@ def getName():
 	print('Please enter your name function');
 	name2 = input();
 	printName(name2);
+	return name2
 
 def printName(name):
-	print('The name that was entered is {}'.format(name))
+	print('Get name from getName function here: {}'.format(getName)) #Python 2.7 sysntax (format())
+	print('The name that was entered is {}'.format(name)) 
 
 getName();
 # print('Name 1 {} Name 2 {}'.format(name, name2))
@@ -59,3 +63,6 @@ class Printer:
 
 className = Printer('Elena')
 print(f'Class Name is: {className.name}')
+
+
+

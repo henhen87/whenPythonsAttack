@@ -3,8 +3,10 @@ from reg import OR_RGXS, URIS
 
 uriInput = 'https://eur-de.orders.sp.com';
 
+print('\nORIGIN {} \n'.format(OR_RGXS))
+
 if any(re.match(rex, uriInput) for rex in OR_RGXS):
-	print('OK ELENA')
+	print('OK')
 else:
 	print('NOOOO')
 

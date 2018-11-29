@@ -21,3 +21,29 @@ if __name__ == "__main__":
 # main() in THIS file so once the function has been invoked
 # and finishes, it continues to read the code in this file
 # not the file from which the function was imported.
+
+## This can also be the case for the reverse scenario where the 
+# main function is in the same file as the function being imported.
+# Consider figure 1 below.
+
+# Figure 1
+# 
+# originFunc.py
+# def printer(i):
+# 	print('strawberry cough');
+# 	return i;
+
+# for i in range(7):
+# 		print("{}".format(printer(i)))
+
+# def main():
+# 	for i in range(7):
+# 		print("{}".format(printer(i)))
+
+# if __name__ == "__main__":
+# 	main();
+
+# importedFunc.py
+# from originFunc import printer
+
+# printer("<3")

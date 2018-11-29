@@ -6,7 +6,8 @@ def main():
 if __name__ == "__main__":
 	main()
 
-# Line 6 means, when running this file, do everything under 
+# Line 6 means, when the name of the file being run is 
+# __name__, then do everything under 
 # this if block. In this case, it will call the main function.
 # The reason for this demo is to show that when importing and
 # invoking a function from another file, if it is not called
@@ -16,3 +17,7 @@ if __name__ == "__main__":
 # being imported and needed. In this file, the imported 
 # function `looper` will run but the print statement within
 # the same file (loopFunc.py), will not be read and executed.
+# This is because the imported file is inside of a function
+# main() in THIS file so once the function has been invoked
+# and finishes, it continues to read the code in this file
+# not the file from which the function was imported.

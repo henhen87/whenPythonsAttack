@@ -27,14 +27,23 @@ if __name__ == "__main__":
 # Consider figure 1 below.
 
 # Figure 1
-# 
+#------------------
 # originFunc.py
+#------------------
 # def printer(i):
 # 	print('strawberry cough');
 # 	return i;
 
-# for i in range(7):
+##################################################################
+# If this for loop below were not inside the main() function, then
+# when the printer() function gets invoked from importedFunc.py
+# then the for loop would be ran as well as the printer() function.
+# Having the loop in main ensures that it will only run when python 
+# is running originFunc.py
+
+# for i in range(7): 
 # 		print("{}".format(printer(i)))
+##################################################################
 
 # def main():
 # 	for i in range(7):
@@ -43,7 +52,9 @@ if __name__ == "__main__":
 # if __name__ == "__main__":
 # 	main();
 
+#------------------
 # importedFunc.py
+#------------------
 # from originFunc import printer
 
 # printer("<3")

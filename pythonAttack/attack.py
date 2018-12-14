@@ -1,12 +1,12 @@
-import webtest
+# import webtest
 
-import pythonAttack
+# import pythonAttack
 
 
-def test_get():
-    app = webtest.TestApp(pythonAttack.app)
+# def test_get():
+#     app = webtest.TestApp(pythonAttack.app)
 
-    response = app.get('/')
+#     response = app.get('/')
 
-    assert response.status_int == 200
-    assert response.body == 'Hello Elena!!!!!!!'
+#     assert response.status_int == 200
+#     assert response.body == 'tf'

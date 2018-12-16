@@ -1,6 +1,7 @@
 runtime: python27
 api_version: 1
 threadsafe: true
+service: default
 
 handlers:
 - url: /dist
@@ -14,4 +15,3 @@ libraries:
   version: latest
 - name: jinja2
   version: latest
-  

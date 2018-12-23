@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "description": "cleint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u001b[24;2~https://github.com/henhen87/whenPythonsAttack"
+  },
+  "keywords": [
+    "microsevices"
+  ],
+  "author": "henhen",
+  "license": "ISC"
+}

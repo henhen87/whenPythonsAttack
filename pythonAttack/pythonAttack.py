@@ -3,7 +3,7 @@ import jinja2
 import webapp2
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-  loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+  loader=jinja2.FileSystemLoader(os.path.join(os.getcwd(), 'views')),
   extensions=['jinja2.ext.autoescape'],
   autoescape=True)
 
@@ -17,7 +17,7 @@ class MainPage(webapp2.RequestHandler):
 			'url': url
 		}
 
-		template = JINJA_ENVIRONMENT.get_template(VIEW)
+		template = JINJA_ENVIRONMENT.get_template('index.html')
 		self.response.write(template.render(template_values))
 
 

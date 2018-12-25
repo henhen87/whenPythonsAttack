@@ -8,7 +8,7 @@ handlers:
   static_dir: dist
 
 - url: /.*
-  script: backend/pythonAttack.app
+  script: backend.pythonAttack.app
   
 libraries:
 - name: webapp2

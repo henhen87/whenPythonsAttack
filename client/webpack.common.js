@@ -14,7 +14,7 @@ module.exports = {
   entry: ["./index.js"],
   output: {
     path: path.join(process.cwd(), "../dist/js"),
-    filename: "mybundle.js"
+    filename: "mybundle.js",
   },
   resolve: {
     modules: RMODS, 
@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "index.css",
+      filename: "../css/index.css",
       chunkFilename: "[name].css"
     })
   ],
@@ -45,8 +45,18 @@ module.exports = {
           {
             loader: process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
           },
-          "css-loader",
-          "sass-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       }
     ]

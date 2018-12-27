@@ -7,12 +7,11 @@ const components = path.join(process.cwd(), "components");
 const containers = path.join(process.cwd(), "containers");
 const RMODS = [appModules, components, containers];
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const SASS_TYPE = require("sass");
-
-console.log('PATHH', path.join(process.cwd(), "../dist/css"))
+// const SASS_TYPE = require("sass");
+console.log('PROCESS', process.env.NODE_ENV)
 
 module.exports = {
-  entry: ["./index.js", "./sass/index.scss"],
+  entry: ["./index.js"],
   output: {
     path: path.join(process.cwd(), "../dist/js"),
     filename: "mybundle.js"
@@ -21,6 +20,12 @@ module.exports = {
     modules: RMODS, 
     extensions: [".js"] 
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "index.css",
+      chunkFilename: "[name].css"
+    })
+  ],
   module: {
     rules: [
       {
@@ -38,10 +43,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: path.join(process.cwd(), "../dist/css")
-            }
+            loader: process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
           },
           "css-loader",
           "sass-loader",
@@ -49,12 +51,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "../dist/css/index.css",
-      chunkFilename: "[name].css"
-    })
-  ],
   stats: {
     colors: true
   }

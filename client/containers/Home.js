@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import style from '../sass/index.scss';
 
+console.log('STYLE', style);
 class Home extends Component {
 	render() {
 		return (

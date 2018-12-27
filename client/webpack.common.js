@@ -3,12 +3,11 @@ const fs      = require("fs");
 
 const appRoot = fs.realpathSync(process.cwd());
 const appModules = path.resolve(appRoot, "node_modules");
-const components = path.join(process.cwd(), "components");
-const containers = path.join(process.cwd(), "containers");
+const components = path.resolve(path.join(process.cwd(), "components"));
+const containers = path.resolve(path.join(process.cwd(), "containers"));
 const RMODS = [appModules, components, containers];
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const SASS_TYPE = require("sass");
-console.log('PROCESS', process.env.NODE_ENV)
+const APP_ROOT = require('../config').APP_ROOT;
 
 module.exports = {
   entry: ["./index.js"],
@@ -17,7 +16,11 @@ module.exports = {
     filename: "mybundle.js",
   },
   resolve: {
-    modules: RMODS, 
+    modules: [appModules],
+    alias: {
+      components: path.resolve(path.join(process.cwd(), "components")),
+      containers: path.resolve(path.join(process.cwd(), "containers"))
+    }, 
     extensions: [".js"] 
   },
   plugins: [

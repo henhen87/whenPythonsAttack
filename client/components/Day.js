@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 class Day extends Component {
 	static propTypes = {
-		currentTime: PropTypes.number,
-		newYearTime: PropTypes.number
+		currentTime: PropTypes.number
 	}
 
-	render() {
-		console.log('DAY', this.props.newYearTime);
-		return (
-			<div>
-				Hi
-			</div>
-		);
+	_msecs_one_day = 1000*60*60*24
+	_days = Math.floor( this.props.currentTime / (this._msecs_one_day) )
+
+	componentDidUpdate() {
+		this._days = Math.floor( this.props.currentTime / (this._msecs_one_day) );
 	}
+
+
+	render = () => <div>{ this._days }</div>
 }
 
 export default Day;

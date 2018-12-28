@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 
 class Hour extends Component {
 	static propTypes = {
-		currentTime: PropTypes.number,
-		newYearTime: PropTypes.number
+		currentTime: PropTypes.number
 	}
 
-	render() {
-		console.log('HOUR', this.props.currentTime);
-		return (
-			<div>
-				Elena
-			</div>
-		);
+	_msecs_one_hour = 1000*60*60
+	_hours = Math.floor( (this.props.currentTime / (this._msecs_one_hour)) % 24 )
+
+	componentDidUpdate() {
+		this._hours = Math.floor( (this.props.currentTime / (this._msecs_one_hour)) % 24 );
 	}
+
+	render = () => <div>{this._hours}</div>
 }
 
 export default Hour;

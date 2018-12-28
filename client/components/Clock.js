@@ -11,21 +11,25 @@ class Clock extends Component {
 		currentTime: null
 	}
 
-	_timerFunction = null
+	_timerFunctionInt = null
+	_timerFunctionSet = null
 
 	componentDidMount() {
-		this._timerFunction = setInterval(this.getTimeRemaining, 1000);
+		setTimeout(() => {
+			this._timerFunctionInt = setInterval(this.getTimeRemaining, 1000);
+			
+		}, 3000);
 	}
 
 	componentWillUnmount() {
-		clearInterval(this._timerFunction);
+		clearInterval(this._timerFunctionInt);
 	}
 	
 	getTimeRemaining = () => this.setState({ currentTime: Date.parse(NEXT_NEW_YEAR) - Date.parse(new Date()) })
 
 	render() {
 		if (!this.state.currentTime || this.state.currentTime === 0) {
-			return <img src="/dist/img/python.gif" alt="###"/>;
+			return <img src="/dist/img/dance.gif" alt="###"/>;
 		}
 
 		return (

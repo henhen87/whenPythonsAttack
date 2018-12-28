@@ -1,4 +1,7 @@
-html, body {
+@import './modules/clock';
+@import './modules/home';
+
+html, body, #root {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -6,7 +9,7 @@ html, body {
 
 body {
 	position: relative;
-	background: #FFF;
+	background: #000000;
 }
 
 img {

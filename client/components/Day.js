@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class Day extends Component {
 	static propTypes = {
-		currentTime: PropTypes.number
+		currentTime: PropTypes.number.isRequired,
+		className: PropTypes.string
 	}
 
 	_msecs_one_day = 1000*60*60*24
@@ -14,7 +15,11 @@ class Day extends Component {
 	}
 
 
-	render = () => <div>{ this._days }</div>
+	render = () => 
+		<div className="numBox">
+			<div className={this.props.className}>{ this._days } </div>
+			<span>Days</span>
+		</div>
 }
 
 export default Day;

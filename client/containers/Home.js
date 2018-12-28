@@ -6,11 +6,9 @@ import Clock from 'components/Clock';
 console.log('STYLE', style);
 
 class Home extends Component {
-	render() {
+	render = () => {
 		return (
-			<div>
-				ELENA
-				<img src="/dist/img/python.gif" alt="<333 Elena"/>
+			<div id="home">
 				<Clock />
 			</div>
 		);

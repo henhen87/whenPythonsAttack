@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class Minutes extends Component {
 	static propTypes = {
-		currentTime: PropTypes.number
+		currentTime: PropTypes.number.isRequired,
+		className: PropTypes.string
 	}
 
 	_minutes = Math.floor( (this.props.currentTime/1000/60) % 60 )
@@ -12,7 +13,11 @@ class Minutes extends Component {
 		this._minutes = Math.floor( (this.props.currentTime/1000/60) % 60 );
 	}
 
-	render = () => <div>{this._minutes}</div>
+	render = () => 
+		<div className="numBox">
+			<div className={this.props.className}>{this._minutes} </div>
+			<span>Minutes</span>
+		</div>
 }
 
 export default Minutes;

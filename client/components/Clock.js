@@ -29,7 +29,7 @@ class Clock extends Component {
 
 	render() {
 		if (!this.state.currentTime || this.state.currentTime === 0) {
-			return <img src="/dist/img/dance.gif" alt="###"/>;
+			return <img src="/dist/img/dancer2.gif" alt="###"/>;
 		}
 
 		return (

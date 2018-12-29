@@ -23,12 +23,18 @@
 		font-weight: bold;
 		color: #D4AF37;
 		border-right: solid thin #32CD32;
+		perspective: 1000px;
 		.day, .hour, .min, .sec {
 			font-size: 55px;
 			padding-top: 30%;
 			padding-bottom: 30%;
 			height: 70%;
 			background-color: #A9A9A9;
+			transition: transform 1000ms;
+			&.back {
+				transform: rotateX(180deg);
+			}
+		  transform-style: preserve-3d;
 		}
 		
 	}

@@ -25,7 +25,8 @@ class Clock extends Component {
 		clearInterval(this._timerFunctionInt);
 	}
 	
-	getTimeRemaining = () => this.setState({ currentTime: Date.parse(NEXT_NEW_YEAR) - Date.parse(new Date()) })
+	getTimeRemaining = () => this.setState({ 
+		currentTime: Date.parse(NEXT_NEW_YEAR) - Date.parse(new Date()) })
 
 	render() {
 		if (!this.state.currentTime || this.state.currentTime === 0) {

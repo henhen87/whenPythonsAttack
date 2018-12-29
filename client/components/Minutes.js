@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Time } from 'components/Time';
+
 class Minutes extends Component {
 	static propTypes = {
 		currentTime: PropTypes.number.isRequired,
@@ -14,10 +16,8 @@ class Minutes extends Component {
 	}
 
 	render = () => 
-		<div className="numBox">
-			<div className={this.props.className}>{this._minutes} </div>
-			<span>Minutes</span>
-		</div>
+		<Time 
+			time={this._minutes} className={this.props.className} label='Minutes' />
 }
 
 export default Minutes;

@@ -24,19 +24,21 @@
 		color: #D4AF37;
 		border-right: solid thin #32CD32;
 		perspective: 1000px;
-		.day, .hour, .min, .sec {
-			font-size: 55px;
-			padding-top: 30%;
-			padding-bottom: 30%;
-			height: 70%;
-			background-color: #A9A9A9;
+		.flip-box {
 			transition: transform 1000ms;
-			&.back {
-				transform: rotateX(180deg);
-			}
 		  transform-style: preserve-3d;
+			&.back {
+				transform: rotateX(-90deg);
+			}
+			.day, .hour, .min, .sec, .back-time {
+				font-size: 55px;
+				padding-top: 30%;
+				padding-bottom: 30%;
+				height: 70%;
+				background-color: #A9A9A9;
+				backface-visibility: hidden;
+			}
 		}
-		
 	}
 	div:last-child {
 		border-right: none;

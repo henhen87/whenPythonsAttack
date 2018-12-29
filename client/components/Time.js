@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 export const Time = ({ time, label, ...props }) => (
 	<div className="numBox">
-		<div className={props.className}>{time}</div> 
+		<div className={`flip-box ${props.addBackClass ? 'back' : ''}`}>
+			<div className={props.className}>{time}</div>
+		</div>
 		<span>{label}</span>
 	</div>
 );
@@ -11,5 +13,6 @@ export const Time = ({ time, label, ...props }) => (
 Time.propTypes = {
 	time: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
-	className: PropTypes.string
+	className: PropTypes.string,
+	addBackClass: PropTypes.bool.isRequired
 };

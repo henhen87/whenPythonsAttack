@@ -19,7 +19,7 @@ class Seconds extends Component {
 
 	render = () => 
 		<Time 
-			time={this._seconds} className={this.props.className} label='Seconds' />
+			time={this._seconds} addBackClass={this._addBackClass} className={this.props.className} label='Seconds' />
 }
 
 export default Seconds;

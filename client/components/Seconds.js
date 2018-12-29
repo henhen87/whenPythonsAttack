@@ -10,16 +10,14 @@ class Seconds extends Component {
 	}
 
 	_seconds = Math.floor( (this.props.currentTime/1000) % 60 )
-	_addBackClass = false
 
 	componentDidUpdate() {
 		this._seconds = Math.floor( (this.props.currentTime/1000) % 60 );
-		this._addBackClass = !this._addBackClass;
 	}
 
 	render = () => 
 		<Time 
-			time={this._seconds} addBackClass={this._addBackClass} className={this.props.className} label='Seconds' />
+			time={this._seconds} className={this.props.className + " back"} label='Seconds' />
 }
 
 export default Seconds;

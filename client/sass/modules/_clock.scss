@@ -17,6 +17,7 @@
 
 	.numBox {
 		width: 20%;
+    height: 120px;
 		display: inline-block;
 		padding: 2% 2% 0;
 		font-size: 30px;
@@ -24,19 +25,36 @@
 		color: #D4AF37;
 		border-right: solid thin #32CD32;
 		perspective: 1000px;
-		.flip-box {
-			transition: transform 1000ms;
-		  transform-style: preserve-3d;
-			&.back {
-				transform: rotateX(-90deg);
-			}
-			.day, .hour, .min, .sec, .back-time {
-				font-size: 55px;
-				padding-top: 30%;
-				padding-bottom: 30%;
-				height: 70%;
+		.num {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			.day, .hour, .min, .sec, .forever-time {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				font-size: 70px;
+				padding-top: 12%;
+				// padding-bottom: 30%;
+				// height: 70%;
 				background-color: #A9A9A9;
-				backface-visibility: hidden;
+			  transform-style: preserve-3d;
+				// transition: transform 1000ms;
+				&.back {
+					opacity: 1;
+					animation: flipper 1000ms ease-in-out 500ms infinite;
+					// transform: rotateX(180deg);
+					// backface-visibility: hidden;
+				}
+				@keyframes flipper {
+					100% {
+						transform: rotateX(-91deg);
+						opacity: 0;
+						// backface-visibility: hidden;
+					}
+				}
 			}
 		}
 	}

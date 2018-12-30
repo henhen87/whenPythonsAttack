@@ -31,17 +31,20 @@
 			height: 100%;
 			.day, .hour, .min, .sec, .forever-time {
 				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
 				font-size: 70px;
 				padding-top: 12%;
-				// padding-bottom: 30%;
-				// height: 70%;
 				background-color: #A9A9A9;
 			  transform-style: preserve-3d;
-				// transition: transform 1000ms;
+			  &.first-digit {
+			  	width: 49%;
+			  	left: 0;
+			  	margin-right: 1%;
+			  }
+			  &.second-digit {
+			  	width: 49%;
+			  	right: 0;
+			  	margin-left: 1%;
+			  }
 				&.back {
 					opacity: 1;
 					animation: flipper 1000ms ease-in-out 500ms infinite;

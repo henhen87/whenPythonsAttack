@@ -23,12 +23,6 @@ module.exports = {
     }, 
     extensions: [".js"] 
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "../css/index.css",
-      chunkFilename: "[name].css"
-    })
-  ],
   module: {
     rules: [
       {

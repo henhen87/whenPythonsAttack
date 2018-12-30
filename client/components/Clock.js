@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Day from 'components/Day';
-import Hour from 'components/Hour';
-import Minutes from 'components/Minutes';
-import Seconds from 'components/Seconds';
+// import Day from 'components/Day';
+// import Hour from 'components/Hour';
+// import Minutes from 'components/Minutes';
+// import Seconds from 'components/Seconds';
+
+import Time from 'components/Time';
 
 const NEXT_NEW_YEAR = '1/1/2019';
 
@@ -36,10 +38,7 @@ class Clock extends Component {
 		return (
 			<div className="clock">
 				<h1>2019 Count Down!!</h1>
-				<Day className="day" currentTime={this.state.currentTime} />
-				<Hour className="hour" currentTime={this.state.currentTime} />
-				<Minutes className="min" currentTime={this.state.currentTime} />
-				<Seconds className="sec" currentTime={this.state.currentTime} />
+				<Time  currentTime={this.state.currentTime} />
 			</div>
 		);
 	}

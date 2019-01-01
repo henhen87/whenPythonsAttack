@@ -53,15 +53,15 @@ class Time extends Component {
 				<Digit className="day" digit={this._days} label="Days" />
 				<Digit 
 					className="hour" 
-					flipFirstDigit={(this._minutes === 0)} 
+					flip={(this._minutes === 0)} 
 					digit={this._hours} label="Hours" />
 				<Digit 
 					className="min" 
-					flipFirstDigit={(this._seconds === 0)}
+					flip={(this._seconds === 0)}
 					digit={this._minutes} label="Minutes" />
 				<Digit 
 					className="sec" 
-					flipFirstDigit={(this._seconds <= 1)}
+					flip={true}
 					digit={this._seconds} label="Seconds" />
 			</div>
 		);

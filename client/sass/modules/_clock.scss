@@ -1,3 +1,14 @@
+#loader {
+	border-radius: 50%;
+	height: 400px;
+	width: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+}
+
 .clock {
 	span {
 		display: block;
@@ -14,6 +25,7 @@
 	height: 400px;
 	text-align: center;
 	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
+	background: #D3D3D3;
 	
 	.label {
 		color: #FFF;
@@ -70,9 +82,11 @@
 				}
 				.top {
 					height: 150px;
-					animation-name: flipper;
-					animation-duration: 1000ms;
-					animation-delay: 0s;
+					&.flip {
+						animation-name: flipper;
+						animation-duration: 1000ms;
+						animation-delay: 0s;
+					}
 					// animation: flipper 1000ms ease-in 0s infinite;
 				}
 				.bottom {
@@ -91,10 +105,12 @@
 						transform: rotateX(180deg);
 					}
 			    margin-top: -75px;
-					animation-name: flipperBottom;
-					animation-duration: 1000ms;
-					animation-fill-mode: forwards;
-					animation-delay: 500ms;
+			    &.flip {
+						animation-name: flipperBottom;
+						animation-duration: 1000ms;
+						animation-fill-mode: forwards;
+						animation-delay: 500ms;
+			    }
 					// animation: flipperBottom 1000ms ease-out 2s infinite;
 				}
 			}

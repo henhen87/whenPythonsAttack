@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 
 import Time from 'components/Time';
 
-const NEXT_NEW_YEAR = '1/1/2019';
+const NEXT_NEW_YEAR = '1/1/2020';
 
 class Clock extends Component {
 	state = {
@@ -37,7 +37,7 @@ class Clock extends Component {
 
 		return (
 			<div className="clock">
-				<h1>2019 Count Down!!</h1>
+				<h1>2020 Count Down!!</h1>
 				<Time  currentTime={this.state.currentTime} />
 			</div>
 		);

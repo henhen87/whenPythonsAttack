@@ -9,12 +9,15 @@ export const Digit = ({flipFirstDigit, digit, ...props}) => {
 		<div className="numBox">
 			<div className="num">
 				<div className="top-container">
-					<h1>{String(digit).length === 1 ? `0${digit}` : digit}</h1>
+					<h1>{String(digit).length === 1 ? `0${digit}` : digit - 1}</h1>
 					<div className="top"><h1>{String(digit).length === 1 ? `0${digit}` : digit}</h1></div>
 				</div>
 				<div className="bottom-container">
-					<h1>{String(digit).length === 1 ? `0${digit}` : digit}</h1>
-					<div className="bottom"><h1>{String(digit).length === 1 ? `0${digit}` : digit}</h1></div>
+					<h1>{String(digit).length === 1 ? `0${digit}` : digit - 1}</h1>
+					<div className="bottom">
+						<h1>{String(digit).length === 1 ? `0${digit}` : digit}</h1>
+						<h1>{String(digit).length === 1 ? `0${digit}` : digit - 1}</h1>
+					</div>
 				</div>
 			</div>
 			<div className="label">{props.label}</div>

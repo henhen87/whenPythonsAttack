@@ -17,10 +17,10 @@ class Time extends Component {
 	// 	flipOnesDigit: false
 	// }
 
-	_seconds = null 
-	_minutes = null 
-	_hours = null 
-	_days = null 
+	_seconds = 0 
+	_minutes = 0 
+	_hours = 0 
+	_days = 0 
 
 	componentDidMount() {
 		this.initializeTime();
@@ -44,37 +44,25 @@ class Time extends Component {
 
 	getSeconds = () => Math.floor( (this.props.currentTime/1000) % 60 )
 	getMinuntes = () => Math.floor( (this.props.currentTime/1000/60) % 60 )
-	getHours = () => Math.floor( (this.props.currentTime / (this.MILLI_SECS_HOUR)) % 24 )
-	getDays = () => Math.floor( this.props.currentTime / (this.MILLI_SECS_DAY) )
+	getHours = () => Math.floor( (this.props.currentTime / (MILLI_SECS_HOUR)) % 24 )
+	getDays = () => Math.floor( this.props.currentTime / (MILLI_SECS_DAY) )
 
 	render() {
 		return (
 			<div>
-				<div className="days-box">
-					<Digit className="day" digit={this._days} />
-					<div className="label">Days</div>
-				</div>
-				<div className="hours-box">
-					<Digit 
-						className="hour" 
-						flipFirstDigit={(this._minutes === 0)} 
-						digit={this._hours} />
-					<div className="label">Hours</div>
-				</div>
-				<div className="mins-box">
-					<Digit 
-						className="min" 
-						flipFirstDigit={(this._seconds === 0)}
-						digit={this._minutes} />
-					<div className="label">Minutes</div>
-				</div>
-				<div className="secs-box">
-					<Digit 
-						className="sec" 
-						flipFirstDigit={(this._seconds <= 1)}
-						digit={this._seconds} />
-					<div className="label">Seconds</div>
-				</div>
+				<Digit className="day" digit={this._days} label="Days" />
+				<Digit 
+					className="hour" 
+					flipFirstDigit={(this._minutes === 0)} 
+					digit={this._hours} label="Hours" />
+				<Digit 
+					className="min" 
+					flipFirstDigit={(this._seconds === 0)}
+					digit={this._minutes} label="Minutes" />
+				<Digit 
+					className="sec" 
+					flipFirstDigit={(this._seconds <= 1)}
+					digit={this._seconds} label="Seconds" />
 			</div>
 		);
 	}

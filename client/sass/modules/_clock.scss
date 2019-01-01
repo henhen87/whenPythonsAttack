@@ -14,52 +14,92 @@
 	height: 400px;
 	text-align: center;
 	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
-
+	
+	.label {
+		color: #FFF;
+	}
 	.numBox {
 		width: 20%;
     height: 120px;
 		display: inline-block;
 		padding: 2% 2% 0;
-		font-size: 30px;
-		font-weight: bold;
-		color: #D4AF37;
 		border-right: solid thin #32CD32;
-		perspective: 1000px;
+
+
 		.num {
-			position: relative;
 			width: 100%;
 			height: 100%;
-			.day, .hour, .min, .sec, .forever-time {
-				position: absolute;
-				font-size: 70px;
-				padding-top: 12%;
-				background-color: #A9A9A9;
-			  transform-style: preserve-3d;
-			  &.first-digit {
-			  	width: 49%;
-			  	left: 0;
-			  	margin-right: 1%;
-			  }
-			  &.second-digit {
-			  	width: 49%;
-			  	right: 0;
-			  	margin-left: 1%;
-			  }
-				&.back {
-					opacity: 1;
-					animation: flipper 1000ms ease-in-out 500ms infinite;
-					// transform: rotateX(180deg);
+			.top-container {
+				h1 {
+					// font-size: 50px;
+	        margin-top: -23px;
+				}
+				perspective: 200px;
+				margin-bottom: 2px;
+			}
+			.bottom-container {
+				h1 {
+					// font-size: 50px;
+			    // padding-top: 2px;
+			    margin: -84px 0 0;
+				}
+				perspective: 1000px;
+			}
+			.top-container, .bottom-container {
+				color: #D4AF37;
+				font-size: 67px;
+				font-weight: bold;
+				text-align: center;
+				position: relative;
+				background-color: #747479;
+				height: 50%;
+				overflow: hidden;
+				.top, .bottom {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					transform-style: preserve-3d;
+					animation-timing-function: ease-out;
+					animation-iteration-count: infinite;
+					
+				}
+				.top {
+					height: 150px;
+					animation-name: flipper;
+					animation-duration: 1000ms;
+					animation-delay: 0s;
+					// animation: flipper 1000ms ease-in 0s infinite;
+				}
+				.bottom {
+					animation-name: flipperBottom;
+					animation-duration: 1000ms;
+					animation-fill-mode: forwards;
+					animation-delay: 500ms;
+					// animation: flipperBottom 1000ms ease-out 2s infinite;
+				}
+			}
+			@keyframes flipper {
+				100% {
+					transform: rotateX(-90deg);
+					// opacity: 0;
 					// backface-visibility: hidden;
 				}
-				@keyframes flipper {
-					100% {
-						transform: rotateX(-91deg);
-						opacity: 0;
-						// backface-visibility: hidden;
-					}
+			}
+			@keyframes flipperBottom {
+				0% {
+					transform: rotateX(-90deg);
+				}
+				100% {
+					transform: rotateX(-180deg);
+					// opacity: 0;
+					// backface-visibility: hidden;
 				}
 			}
 		}
+
+
 	}
 	div:last-child {
 		border-right: none;

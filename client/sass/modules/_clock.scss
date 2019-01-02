@@ -51,6 +51,14 @@
 			}
 			.bottom-container {
 				h1 {
+					&.show {
+						// animation: showNum 500ms linear 0s;
+						visibility: visible;
+					}
+					&.hide {
+						visibility: hidden;
+						// animation: hideNum 500ms linear 0s;
+					}
 					// font-size: 50px;
 			    // padding-top: 2px;
 			    margin-top: -86px;
@@ -67,32 +75,39 @@
 				height: 50%;
 				overflow: hidden;
 				.top, .bottom {
-					h1 {
-						backface-visibility: hidden;
-					}
+					// h1 {
+					// 	backface-visibility: hidden;
+					// }
+					background: #000;
 					position: absolute;
 					top: 0;
 					bottom: 0;
 					left: 0;
 					right: 0;
 					transform-style: preserve-3d;
-					animation-timing-function: ease-out;
-					animation-iteration-count: infinite;
+					// animation-iteration-count: infinite;
 					
 				}
+
 				.top {
 					height: 150px;
 					&.flip {
-						animation-name: flipper;
-						animation-duration: 1000ms;
-						animation-delay: 0s;
+						animation: flipper 0.5s linear both;
+						@keyframes flipper {
+							0% {
+								transform: rotateX(0deg);
+							}
+							100% {
+								transform: rotateX(-90deg);
+							}
+						}
 					}
-					// animation: flipper 1000ms ease-in 0s infinite;
 				}
 				.bottom {
 					h1 {
 						position: absolute;
-						top: 11px;
+	
+						top: -11px;
 						margin-top: 0;
 						width: 100%;
 						height: 100%;
@@ -100,37 +115,37 @@
 					h1:first-child {
 						z-index: 2;
 					}
-					h1:last-child {
-						z-index: 1;
-						transform: rotateX(180deg);
-					}
 			    margin-top: -75px;
 			    &.flip {
-						animation-name: flipperBottom;
-						animation-duration: 1000ms;
-						animation-fill-mode: forwards;
-						animation-delay: 500ms;
+						animation: flipperBottom 0.5s 0.5s linear both;
+						// animation-delay: 500ms;
+						@keyframes flipperBottom {
+							0% {
+								transform: rotateX(90deg);
+							}
+							100% {
+								transform: rotateX(0deg);
+							}
+						}
 			    }
-					// animation: flipperBottom 1000ms ease-out 2s infinite;
 				}
 			}
-			@keyframes flipper {
-				100% {
-					transform: rotateX(-90deg);
-					// opacity: 0;
-					// backface-visibility: hidden;
-				}
-			}
-			@keyframes flipperBottom {
-				0% {
-					transform: rotateX(-90deg);
-				}
-				100% {
-					transform: rotateX(-180deg);
-					// opacity: 0;
-					// backface-visibility: hidden;
-				}
-			}
+			// @keyframes showNum {
+			// 	0% {
+			// 		opacity: 0;
+			// 	}
+			// 	100% {
+			// 		opacity: 1;
+			// 	}
+			// }
+			// @keyframes hideNum {
+			// 	0% {
+			// 		opacity: 1;
+			// 	}
+			// 	100% {
+			// 		opacity: 0;
+			// 	}
+			// }
 		}
 
 

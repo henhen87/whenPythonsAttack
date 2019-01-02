@@ -12,10 +12,15 @@ class Time extends Component {
 		currentTime: PropTypes.number.isRequired
 	};
 
-	// state = {
-	// 	flipTensDigit: false,
-	// 	flipOnesDigit: false
-	// }
+	state = {
+		flipSecs: false,
+		flipSecsBot: false
+	}
+
+	_botNumIntervalFunc = null
+	_botNumIntervalFuncTwo = null
+
+	// _flipSecs = false
 
 	_seconds = 0 
 	_minutes = 0 
@@ -24,14 +29,35 @@ class Time extends Component {
 
 	componentDidMount() {
 		this.initializeTime();
+		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 500);
+		this._botNumIntervalFuncTwo = setInterval(this.setBotFlipSecs, 1100);
 	}
 
 	componentDidUpdate() {
+		console.log('INSIDE DID UPDATE')
 		this.initializeTime();
 	} 
 
+	componentWillUnmount() {
+		clearInterval(this._botNumIntervalFunc);
+	}
+
+	setFlipSecs = () => {
+		console.log('FLIP SECSS BEFORE', this._flipSecs)
+		// this._flipSecs = !this._flipSecs
+		this.setState({ flipSecs: !this.state.flipSecs });
+		console.log('FLIP SECSS AFTER', this._flipSecs)
+	}
+
+	setBotFlipSecs = () => {
+		this.setState({ flipSecsBot: true });
+		setTimeout(() => this.setState({ flipSecsBot: false }), 900);
+	}
+
 	initializeTime = () => {
-		this._seconds = this.getSeconds();
+		setTimeout(() => {
+			this._seconds = this.getSeconds();
+		}, 450)
 		this._minutes = this.getMinuntes();
 		this._hours = this.getHours();
 		this._days = this.getDays();
@@ -61,7 +87,8 @@ class Time extends Component {
 					digit={this._minutes} label="Minutes" />
 				<Digit 
 					className="sec" 
-					flip={true}
+					flip={this.state.flipSecs}
+					flipSecsBot={this.state.flipSecsBot}
 					digit={this._seconds} label="Seconds" />
 			</div>
 		);

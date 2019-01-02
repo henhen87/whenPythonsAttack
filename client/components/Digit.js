@@ -11,7 +11,7 @@ export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
 					<div className={`top ${flip === true ? 'flip' : ''}`}><h1>{digit}</h1></div>
 				</div>
 				<div className="bottom-container">
-					<h1>{flipSecsBot === false ? digit - 1 : digit}</h1>
+					<h1 className={flipSecsBot === false ? 'show' : ''}>{digit}</h1>
 					<div className={`bottom ${flipSecsBot === true ? 'flip' : ''}`}>
 						<h1>{digit}</h1>
 					</div>

@@ -51,21 +51,14 @@ class Time extends Component {
 
 	setBotFlipSecs = () => {
 		this.setState({ flipSecsBot: true });
-		setTimeout(() => this.setState({ flipSecsBot: false }), 900);
+		setTimeout(() => this.setState({ flipSecsBot: false }), 1000);
 	}
 
 	initializeTime = () => {
-		setTimeout(() => {
-			this._seconds = this.getSeconds();
-		}, 450)
+		this._seconds = this.getSeconds();
 		this._minutes = this.getMinuntes();
 		this._hours = this.getHours();
 		this._days = this.getDays();
-
-		console.log('SECS SPLIT', String(this._seconds).split('')[1]);
-		console.log('MINS', this._minutes);
-		console.log('HOURS', this._hours);
-		console.log('DAYS', this._days);
 	}
 
 	getSeconds = () => Math.floor( (this.props.currentTime/1000) % 60 )

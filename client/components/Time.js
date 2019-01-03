@@ -18,10 +18,7 @@ class Time extends Component {
 	}
 
 	_botNumIntervalFunc = null
-	_botNumIntervalFuncTwo = null
 	_initTimeIntervalFunc = null
-
-	// _flipSecs = false
 
 	_seconds = 0 
 	_minutes = 0 
@@ -31,21 +28,18 @@ class Time extends Component {
 	componentDidMount() {
 		this._initTimeIntervalFunc == setInterval(this.initializeTime, 1000);
 		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 500);
-		// this._botNumIntervalFuncTwo = setInterval(this.setBotFlipSecs, 1000);
 	}
 
 	componentWillUnmount() {
 		clearInterval(this._initTimeIntervalFunc);
 		clearInterval(this._botNumIntervalFunc);
-		clearInterval(this._botNumIntervalFuncTwo);
 	}
 
-	setFlipSecs = () => this.setState({ flipSecs: !this.state.flipSecs }, () => setTimeout(() => {
-		this.setState({ flipSecsBot: !this.state.flipSecsBot })
+	setFlipSecs = () => this.setState({ 
+			flipSecs: !this.state.flipSecs 
+		}, () => setTimeout(() => {
+			this.setState({ flipSecsBot: !this.state.flipSecsBot })
 	}, 500))
-
-	setBotFlipSecs = () => {
-	}
 
 	initializeTime = () => {
 		this._seconds = this.getSeconds();

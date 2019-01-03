@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
-	console.log('FLIP', flip)
 	return (
 		<div className="numBox">
 			<div className="num">

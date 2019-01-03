@@ -53,22 +53,33 @@
 			}
 			.bottom-container {
 				h1 {
+					transition: all 500ms linear;
 					&.show {
-						animation: showNum 0.5s 0.5s linear;
+						// animation: showNum 0.5s linear;
+						visibility: visible;
 						// visibility: visible;
-						@keyframes showNum {
-							0% {
-								opacity: 0;
-							}
-							100% {
-								opacity: 1;
-							}
-						}
+						// @keyframes showNum {
+						// 	0% {
+						// 		opacity: 0;
+						// 	}
+						// 	100% {
+						// 		opacity: 1;
+						// 	}
+						// }
 					}
 					&.hide {
 						visibility: hidden;
-						// animation: hideNum 500ms linear 0s;
-					}
+						// animation: hideNum 0.25s linear;
+						// @keyframes hideNum {
+						// 	0% {
+						// 		opacity: 1;
+						// 	}
+						// 	100% {
+						// 		opacity: 0;
+						// 	}
+						}
+					// 	// animation: hideNum 500ms linear 0s;
+					// }
 					// font-size: 50px;
 			    // padding-top: 2px;
 			    margin-top: -86px;
@@ -129,7 +140,7 @@
 					}
 			    margin-top: -75px;
 			    &.flip {
-						animation: flipperBottom 0.5s 0.5s linear both;
+						animation: flipperBottom 0.5s linear both;
 						// animation-delay: 500ms;
 						@keyframes flipperBottom {
 							0% {

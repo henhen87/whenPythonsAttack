@@ -14,7 +14,6 @@ class Clock extends Component {
 	}
 
 	_timerFunctionInt = null
-	_timerFunctionSet = null
 
 	componentDidMount() {
 		setTimeout(() => {

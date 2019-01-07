@@ -38,7 +38,7 @@ class Time extends Component {
 	setFlipSecs = () => this.setState({ 
 			flipSecs: !this.state.flipSecs 
 		}, () => setTimeout(() => {
-			this.setState({ flipSecsBot: !this.state.flipSecsBot })
+			this.setState({ flipSecsBot: !this.state.flipSecsBot });
 	}, 500))
 
 	initializeTime = () => {
@@ -49,7 +49,8 @@ class Time extends Component {
 	}
 
 	getSeconds = () => Math.floor( (this.props.currentTime/1000) % 60 )
-	getMinuntes = () => Math.floor( (this.props.currentTime/1000/60) % 60 )
+	getMinuntes = () => (this._minutes !== Math.floor( (this.props.currentTime/1000/60) % 60 ))
+		&& Math.floor( (this.props.currentTime/1000/60) % 60 )
 	getHours = () => Math.floor( (this.props.currentTime / (MILLI_SECS_HOUR)) % 24 )
 	getDays = () => Math.floor( this.props.currentTime / (MILLI_SECS_DAY) )
 

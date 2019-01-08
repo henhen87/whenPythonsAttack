@@ -5,8 +5,12 @@ export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
 	return (
 		<div className="numBox">
 			<div className="num">
-				<h1 className="backNum backNumtop">{digit - 1}</h1>
-				<h1 className={flipSecsBot === false ? 'backNum show' : 'backNum backNumbot hide'}>{digit + 1}</h1>
+				{/*<div id="backTop">
+					<h1 className="backNum">{digit - 1}</h1>
+				</div>
+				<div id="backBot">
+					<h1 className={flipSecsBot === false ? 'backNum show' : 'backNum hide'}>{digit + 1}</h1>
+				</div>*/}
 				<div className={`top-container ${flip === true ? 'flip' : ''}`}>
 					<div className={`top`}><h1>{digit}</h1></div>
 				</div>

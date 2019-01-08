@@ -14,20 +14,21 @@ class Time extends Component {
 
 	state = {
 		flipSecs: false,
-		flipSecsBot: false
+		flipSecsBot: false,
+		flipSecsMin: false,
 	}
 
 	_botNumIntervalFunc = null
 	_initTimeIntervalFunc = null
 
-	_seconds = 0 
-	_minutes = 0 
-	_hours = 0 
-	_days = 0 
+	_seconds = Math.floor( (this.props.currentTime/1000) % 60 )
+	_minutes = Math.floor( (this.props.currentTime/1000/60) % 60 )
+	_hours = Math.floor( (this.props.currentTime / (MILLI_SECS_HOUR)) % 24 ) 
+	_days = Math.floor( this.props.currentTime / (MILLI_SECS_DAY) )
 
 	componentDidMount() {
 		this._initTimeIntervalFunc == setInterval(this.initializeTime, 1000);
-		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 500);
+		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 750);
 	}
 
 	componentWillUnmount() {
@@ -39,20 +40,43 @@ class Time extends Component {
 			flipSecs: !this.state.flipSecs 
 		}, () => setTimeout(() => {
 			this.setState({ flipSecsBot: !this.state.flipSecsBot });
-	}, 500))
+	}, 750))
 
 	initializeTime = () => {
 		this._seconds = this.getSeconds();
-		this._minutes = this.getMinuntes();
-		this._hours = this.getHours();
-		this._days = this.getDays();
 	}
 
-	getSeconds = () => Math.floor( (this.props.currentTime/1000) % 60 )
-	getMinuntes = () => (this._minutes !== Math.floor( (this.props.currentTime/1000/60) % 60 ))
-		&& Math.floor( (this.props.currentTime/1000/60) % 60 )
-	getHours = () => Math.floor( (this.props.currentTime / (MILLI_SECS_HOUR)) % 24 )
-	getDays = () => Math.floor( this.props.currentTime / (MILLI_SECS_DAY) )
+	getSeconds = () => {
+		if (this._seconds === 0) {
+			this._minutes = this.getMinuntes();
+			return 59;
+		} else {
+			return this._seconds - 1;
+		}
+	}
+	getMinuntes = () => {
+		if (this._minutes === 0) {
+			this._hours = this.getHours();
+			return 59;
+		} else {
+			return this._minutes - 1;
+		}
+	}
+	getHours = () => {
+		if (this._hours === 0) {
+			this._days = this.getDays();
+			return 24;
+		} else {
+			return this._hours - 1
+		}
+	}
+	getDays = () => {
+		if (this._days === 0) {
+			return 365;
+		} else {
+			return this._days - 1;
+		}
+	}
 
 	render() {
 		return (
@@ -65,6 +89,7 @@ class Time extends Component {
 				<Digit 
 					className="min" 
 					flip={(this._seconds === 0)}
+					flipSecsBot={this._seconds === 0}
 					digit={this._minutes} label="Minutes" />
 				<Digit 
 					className="sec" 

@@ -14,7 +14,7 @@
 		display: block;
 	}
 	h1 {
-		color: #D4AF37;
+		color: gold;
 	}
 	position: absolute;
 	top: 50%;
@@ -39,97 +39,138 @@
 
 
 		.num {
+			h1 {
+				&.backNum {
+					height: 50%;
+					color: pink;
+					font-weight: 300;
+					// position: absolute;
+				}
+				&.backNumtop {
+					// height: 50%;
+					// top: 0;
+					// left: 0;
+				}
+			}
 			width: 100%;
 			height: 100%;
+			background: #333;
+			perspective: 200;
+			position: relative;
+			overflow: visible !important;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
 			.top-container {
-				h1 {
-	        margin-top: -23px;
+				top: 0;
+				left: 0;
+				right: 0;
+				&.flip {
+					height: 100%;
+		    	top: 0;
+		    	right: 0;
+		    	bottom: 0;
+		    	left: 0;
+		    	z-index: 1;
+					animation: flipper 0.750s linear both;
+					@keyframes flipper {
+						0% {
+							// background: #333;
+							transform: rotateX(0deg);
+						}
+						100% {
+							// background: linear-gradient(to bottom, rgba(51,51,51,1) 20%, rgba(55,55,55,1) 100%);
+							transform: rotateX(-90deg);
+						}
+					}
 				}
 				border-top-left-radius: 20px;
 				border-top-right-radius: 20px;
-				perspective: 200px;
+				// perspective: 200px;
 				margin-bottom: 2px;
 			}
 			.bottom-container {
-				h1 {
-					transition: all 500ms linear;
-					&.show {
-						visibility: visible;
+				// h1 {
+				// 	transition: all 500ms linear;
+				// 	&.show {
+				// 		visibility: visible;
+				// 	}
+				// 	&.hide {
+				// 		visibility: hidden;
+				// 	}
+			 //    margin-top: -86px;
+				// }
+				left: 0;
+				bottom: 0;
+				right: 0;
+				width: 100%;
+		    &.flip {
+		    	.bottom {
+		    		h1 {
+			    		top: -23px;
+		    		}
+		    	}
+		    	height: 100%;
+		    	top: 0;
+		    	right: 0;
+		    	bottom: 0;
+		    	left: 0;
+		    	z-index: 1;
+					animation: flipperBottom 0.750s linear both;
+					@keyframes flipperBottom {
+						0% {
+							// background: linear-gradient(to bottom, rgba(235,235,235,0.5) 10%, #333 100%);
+							transform: rotateX(90deg);
+						}
+						100% {
+							// background: #333;
+							transform: rotateX(0deg);
+						}
 					}
-					&.hide {
-						visibility: hidden;
-					}
-			    margin-top: -86px;
-				}
+		    }
 				border-bottom-left-radius: 20px;
 				border-bottom-right-radius: 20px;
-				perspective: 1000px;
+				// perspective: 1000px;
 			}
 			.top-container, .bottom-container {
 				h1 {
 					font-weight: 300;
 				}
-				color: #D4AF37;
+					transition: none;
+				color: gold;
 				font-size: 67px;
 				font-weight: bold;
 				text-align: center;
-				position: relative;
+				position: absolute;
+				// position: relative;
 				background: #333;
 				height: 50%;
 				overflow: hidden;
+				z-index: 2;
 				.top, .bottom {
 					background: #333;
-					color: #CCC;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
+					// color: #CCC;
+					position: relative;
 					transform-style: preserve-3d;
 				}
 
-				.top {
-					height: 150px;
-					&.flip {
-						animation: flipper 0.5s linear both;
-						@keyframes flipper {
-							0% {
-								// background: #333;
-								transform: rotateX(0deg);
-							}
-							100% {
-								// background: linear-gradient(to bottom, rgba(51,51,51,1) 20%, rgba(55,55,55,1) 100%);
-								transform: rotateX(-90deg);
-							}
-						}
-					}
-				}
+				// .top {
+				// 	height: 150px;
+				// }
 				.bottom {
 					h1 {
+						height: 100%;
 						position: absolute;
-	
-						top: -11px;
+						top: -83px;
 						margin-top: 0;
 						width: 100%;
 						height: 100%;
 					}
-					h1:first-child {
-						z-index: 2;
-					}
-			    margin-top: -75px;
-			    &.flip {
-						animation: flipperBottom 0.5s linear both;
-						@keyframes flipperBottom {
-							0% {
-								// background: linear-gradient(to bottom, rgba(235,235,235,0.5) 10%, #333 100%);
-								transform: rotateX(90deg);
-							}
-							100% {
-								// background: #333;
-								transform: rotateX(0deg);
-							}
-						}
-			    }
+					// h1:first-child {
+					// 	z-index: 2;
+					// }
+			    margin-top: 0;
 				}
 			}
 		}

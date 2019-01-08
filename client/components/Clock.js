@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-// import Day from 'components/Day';
-// import Hour from 'components/Hour';
-// import Minutes from 'components/Minutes';
-// import Seconds from 'components/Seconds';
 
 import Time from 'components/Time';
 
@@ -13,21 +9,13 @@ class Clock extends Component {
 		currentTime: null
 	}
 
-	_timerFunctionInt = null
-
 	componentDidMount() {
 		setTimeout(() => {
-			this._timerFunctionInt = setInterval(this.getTimeRemaining, 1000);
-			
+			this.setState({ 
+				currentTime: Date.parse(NEXT_NEW_YEAR) - Date.parse(new Date()) 
+			});
 		}, 3000);
 	}
-
-	componentWillUnmount() {
-		clearInterval(this._timerFunctionInt);
-	}
-	
-	getTimeRemaining = () => this.setState({ 
-		currentTime: Date.parse(NEXT_NEW_YEAR) - Date.parse(new Date()) })
 
 	render() {
 		if (!this.state.currentTime || this.state.currentTime === 0) {

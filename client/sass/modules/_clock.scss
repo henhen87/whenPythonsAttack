@@ -179,7 +179,7 @@
 				h1 {
 					font-weight: 300;
 				}
-					transition: none;
+				transition: none;
 				color: gold;
 				font-size: 67px;
 				font-weight: bold;
@@ -200,7 +200,11 @@
 				border-top-right-radius: 20px;
 				border-bottom-left-radius: 20px;
 				border-bottom-right-radius: 20px;
-
+				.top {
+					h1 {
+				    margin: -23px 0 0;
+					}
+				}
 				.bottom {
 					h1 {
 						height: 100%;

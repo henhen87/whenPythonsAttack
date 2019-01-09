@@ -24,7 +24,6 @@ class Clock extends Component {
 
 		return (
 			<div className="clock">
-				<h1>2020 Count Down!!</h1>
 				<Time  currentTime={this.state.currentTime} />
 			</div>
 		);

@@ -28,7 +28,7 @@ class Time extends Component {
 
 	componentDidMount() {
 		this._initTimeIntervalFunc == setInterval(this.initializeTime, 1000);
-		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 750);
+		this._botNumIntervalFunc = setInterval(this.setFlipSecs, 500);
 	}
 
 	componentWillUnmount() {
@@ -40,7 +40,7 @@ class Time extends Component {
 			flipSecs: !this.state.flipSecs 
 		}, () => setTimeout(() => {
 			this.setState({ flipSecsBot: !this.state.flipSecsBot });
-	}, 750))
+	}, 500))
 
 	initializeTime = () => {
 		this._seconds = this.getSeconds();

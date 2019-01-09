@@ -4,6 +4,33 @@
 	position: relative;
 	background: #201E1E;
 	text-align: center;
+	overflow: auto;
+	.main-header {
+		color: #CCFF00;
+		font-size: 30px;
+		text-align: center;
+		border: solid 4px #FF6EFF;
+		border-radius: 50%;
+		width: 20%;
+		margin: 20px auto 0;
+		font-weight: 400;
+		padding: 15px;
+		font-family: Brush Script MT, Brush Script Std, cursive;
+		// text-shadow: 0 0 0 #CCFF00;
+		animation: pulse 2s ease-in-out infinite both;
+		@keyframes pulse {
+			0% {
+				text-shadow: 0 0 5px #CCFF00;
+			}
+			50% {
+				text-shadow: 0 0 8px #CCFF00;
+			}
+			100%{
+				text-shadow: 0 0 5px #CCFF00;
+				
+			}
+		}
+	}
 }
 
 // .flip-clock-wrapper ul.play li.flip-clock-active {

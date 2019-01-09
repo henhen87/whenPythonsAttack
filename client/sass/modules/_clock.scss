@@ -36,57 +36,81 @@
 		display: inline-block;
 		padding: 2% 2% 0;
 		border-right: solid thin #32CD32;
-
-
-		.num {
-			#backTop, #backBot {
-				h1 {
-					height: 200%;
-					font-size: 67px;
-					margin: 0;
-					font-size: 134px;
-				}
-				height: 50%;
-				color: pink;
-				font-weight: 300;
-				overflow: hidden !important;
+		#backTop, #backBot {
+			h1 {
+				height: 200%;
+				font-size: 67px;
+				margin: 0;
+				font-size: 134px;
 			}
-			#backTop {
-				h1 {
-					&.backNum {
-						position: absolute;
-						top: -23px;
-						left: 0;
-						right: 0;
-						font-weight: 300;
-						color: gold;
-					}
+			h1 {
+				&.backNum {
+					position: absolute;
+					color: gold;
+					font-weight: 300;
 				}
 			}
-			#backBot {
-				h1 {
-					&.backNum {
-						position: absolute;
-						top: -23px;
-						bottom: 0;
-						left: 0;
-						right: 0;
-						font-weight: 300;
-						color: pink;
-					}
-				}
-			}
+			background: #333;
+			width: 100%;
+			height: 50%;
 			
+			float: left;
+			position: relative;
+			overflow: hidden !important;
+		}
+		#backTop {
+			h1 {
+				&.backNum {
+					top: -23px;
+					left: 0;
+					right: 0;
+				}
+			}
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+		}
+		#backBot {
+			h1 {
+				&.backNum {
+					top: -83px;
+					bottom: 0;
+					left: 0;
+					right: 0;
+				}
+				transition: opacity 500ms linear;
+				&.show {
+					opacity: 1;
+				}
+				&.hide {
+					opacity: 0;
+				}
+			}
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+		}
+		
+		.num {
 			width: 100%;
 			height: 100%;
 			background: #333;
-			perspective: 200;
+			perspective: 200px;
 			position: relative;
+			background: transparent;
+			z-index: 2;
 			overflow: visible !important;
 			border-top-left-radius: 20px;
 			border-top-right-radius: 20px;
 			border-bottom-left-radius: 20px;
 			border-bottom-right-radius: 20px;
+			.divider {
+				height: 2px;
+				width: 100%;
+				position: fixed;
+				top: 50%;
+				margin-top: -1px;
+				z-index: 10;
+				background: #ccc;
+			}
 			.top-container {
 				top: 0;
 				left: 0;
@@ -98,34 +122,30 @@
 		    	bottom: 0;
 		    	left: 0;
 		    	z-index: 1;
-					animation: flipper 0.750s linear both;
+					animation: flipper 0.500s linear both;
 					@keyframes flipper {
 						0% {
-							// background: #333;
 							transform: rotateX(0deg);
+							text-shadow: 0 0 0 #000000;
 						}
 						100% {
-							// background: linear-gradient(to bottom, rgba(51,51,51,1) 20%, rgba(55,55,55,1) 100%);
 							transform: rotateX(-90deg);
+							text-shadow: 12px 14px 7px #000000;
 						}
 					}
 				}
-				border-top-left-radius: 20px;
-				border-top-right-radius: 20px;
-				// perspective: 200px;
-				margin-bottom: 2px;
+				.overlayTop {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 5;
+					background: linear-gradient(to bottom, transparent 50%, rgba(51, 51, 51, 0.4) 60%, rgba(51, 51, 51, 0.7) 70%, rgba(51, 51, 51, 0.9) 100%);
+					
+				}
 			}
 			.bottom-container {
-				// h1 {
-				// 	transition: all 500ms linear;
-				// 	&.show {
-				// 		visibility: visible;
-				// 	}
-				// 	&.hide {
-				// 		visibility: hidden;
-				// 	}
-			 //    margin-top: -86px;
-				// }
 				left: 0;
 				bottom: 0;
 				right: 0;
@@ -142,21 +162,18 @@
 		    	bottom: 0;
 		    	left: 0;
 		    	z-index: 1;
-					animation: flipperBottom 0.750s linear both;
+					animation: flipperBottom 0.500s linear both;
 					@keyframes flipperBottom {
 						0% {
-							// background: linear-gradient(to bottom, rgba(235,235,235,0.5) 10%, #333 100%);
 							transform: rotateX(90deg);
+							text-shadow: 12px 14px 7px rgba(0, 0, 0, 0.5);
 						}
 						100% {
-							// background: #333;
 							transform: rotateX(0deg);
+							text-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
 						}
 					}
 		    }
-				border-bottom-left-radius: 20px;
-				border-bottom-right-radius: 20px;
-				// perspective: 1000px;
 			}
 			.top-container, .bottom-container {
 				h1 {
@@ -179,10 +196,11 @@
 					position: relative;
 					transform-style: preserve-3d;
 				}
+				border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
 
-				// .top {
-				// 	height: 150px;
-				// }
 				.bottom {
 					h1 {
 						height: 100%;

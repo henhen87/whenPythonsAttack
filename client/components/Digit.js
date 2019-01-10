@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
+	console.log('FLIP SEC', flipSecsBot)
 	const FLIP_CLASS = flip === true;
 	const FLIP_CLASS_BOT = flipSecsBot === true;
 	return (

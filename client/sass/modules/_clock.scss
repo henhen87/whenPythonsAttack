@@ -16,26 +16,26 @@
 	h1 {
 		color: gold;
 	}
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -40%;
-	margin-top: -200px;
-	width: 80%;
-	height: 400px;
-	text-align: center;
-	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
-	background: #D3D3D3;
+  position: absolute;
+  height: auto;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  margin-left: -40%;
+  margin-top: -86px;
+  text-align: center;
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
 	
 	.label {
 		color: #FFF;
+		margin-top: 10px;
+		font-size: 25px;
 	}
 	.numBox {
 		width: 20%;
     height: 120px;
 		display: inline-block;
 		padding: 2% 2% 0;
-		border-right: solid thin #32CD32;
 		#backTop, #backBot {
 			h1 {
 				height: 200%;
@@ -103,13 +103,13 @@
 			border-bottom-left-radius: 20px;
 			border-bottom-right-radius: 20px;
 			.divider {
-				height: 2px;
+				height: 3px;
 				width: 100%;
 				position: fixed;
 				top: 50%;
-				margin-top: -1px;
+				margin-top: -1.5px;
 				z-index: 10;
-				background: #ccc;
+				background: #201E1E;
 			}
 			.top-container {
 				top: 0;

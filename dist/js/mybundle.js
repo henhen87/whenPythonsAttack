@@ -2904,6 +2904,7 @@ var Digit_Digit = function Digit(_ref) {
       digit = _ref.digit,
       props = _objectWithoutProperties(_ref, ["flip", "flipSecsBot", "digit"]);
 
+  console.log('FLIP SEC', flipSecsBot);
   var FLIP_CLASS = flip === true;
   var FLIP_CLASS_BOT = flipSecsBot === true;
   return react_default.a.createElement("div", {
@@ -2989,7 +2990,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       flipSecs: false,
       flipSecsBot: false,
-      flipSecsMin: false
+      flipMinBot: false
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_botNumIntervalFunc", null);
@@ -3023,6 +3024,11 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSeconds", function () {
       if (_this._seconds === 0) {
         _this._minutes = _this.getMinuntes();
+
+        _this.setState({
+          flipMinBot: true
+        });
+
         return 59;
       } else {
         return _this._seconds - 1;
@@ -3073,28 +3079,32 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react_default.a.createElement("div", null, react_default.a.createElement(Digit_Digit, {
+      return [react_default.a.createElement(Digit_Digit, {
+        key: 0,
         className: "day",
         digit: this._days,
         label: "Days"
       }), react_default.a.createElement(Digit_Digit, {
+        key: 1,
         className: "hour",
         flip: this._minutes === 0,
         digit: this._hours,
         label: "Hours"
       }), react_default.a.createElement(Digit_Digit, {
+        key: 2,
         className: "min",
         flip: this._seconds === 0,
-        flipSecsBot: this._seconds === 0,
+        flipSecsBot: this.state.flipMinBot,
         digit: this._minutes,
         label: "Minutes"
       }), react_default.a.createElement(Digit_Digit, {
+        key: 3,
         className: "sec",
         flip: this.state.flipSecs,
         flipSecsBot: this.state.flipSecsBot,
         digit: this._seconds,
         label: "Seconds"
-      }));
+      })];
     }
   }]);
 

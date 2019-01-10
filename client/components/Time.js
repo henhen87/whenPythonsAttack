@@ -15,7 +15,7 @@ class Time extends Component {
 	state = {
 		flipSecs: false,
 		flipSecsBot: false,
-		flipSecsMin: false,
+		flipMinBot: false,
 	}
 
 	_botNumIntervalFunc = null
@@ -49,6 +49,7 @@ class Time extends Component {
 	getSeconds = () => {
 		if (this._seconds === 0) {
 			this._minutes = this.getMinuntes();
+			this.setState({ flipMinBot: true });
 			return 59;
 		} else {
 			return this._seconds - 1;
@@ -67,7 +68,7 @@ class Time extends Component {
 			this._days = this.getDays();
 			return 24;
 		} else {
-			return this._hours - 1
+			return this._hours - 1;
 		}
 	}
 	getDays = () => {
@@ -79,25 +80,23 @@ class Time extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<Digit className="day" digit={this._days} label="Days" />
-				<Digit 
-					className="hour" 
-					flip={(this._minutes === 0)} 
-					digit={this._hours} label="Hours" />
-				<Digit 
-					className="min" 
-					flip={(this._seconds === 0)}
-					flipSecsBot={this._seconds === 0}
-					digit={this._minutes} label="Minutes" />
-				<Digit 
-					className="sec" 
-					flip={this.state.flipSecs}
-					flipSecsBot={this.state.flipSecsBot}
-					digit={this._seconds} label="Seconds" />
-			</div>
-		);
+		return [
+			<Digit key={0} className="day" digit={this._days} label="Days" />,
+			<Digit key={1}
+				className="hour" 
+				flip={(this._minutes === 0)} 
+				digit={this._hours} label="Hours" />,
+			<Digit key={2}
+				className="min" 
+				flip={(this._seconds === 0)}
+				flipSecsBot={this.state.flipMinBot}
+				digit={this._minutes} label="Minutes" />,
+			<Digit key={3}
+				className="sec" 
+				flip={this.state.flipSecs}
+				flipSecsBot={this.state.flipSecsBot}
+				digit={this._seconds} label="Seconds" />
+		];
 	}
 }
 

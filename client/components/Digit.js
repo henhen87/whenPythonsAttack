@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
-	console.log('FLIP SEC', flipSecsBot)
+export const Digit = ({flip, flipBot, digit, ...props}) => {
 	const FLIP_CLASS = flip === true;
-	const FLIP_CLASS_BOT = flipSecsBot === true;
+	const FLIP_CLASS_BOT = flipBot === true;
 	return (
 		<div className="numBox">
 			<div id="backTop">
 				<h1 className="backNum">{digit === 0 ? digit : digit - 1}</h1>
 			</div>
 			<div id="backBot">
-				<h1 className={flipSecsBot === false ? 'backNum show' : 'backNum hide'}>
+				<h1 className={flipBot === false ? 'backNum show' : 'backNum hide'}>
 					{digit === 0 ? digit : digit + 1}
 				</h1>
 			</div>
@@ -34,7 +33,7 @@ export const Digit = ({flip, flipSecsBot, digit, ...props}) => {
 
 Digit.propTypes = {
 	flip: PropTypes.bool,
-	flipSecsBot: PropTypes.bool,
+	flipBot: PropTypes.bool,
 	digit: PropTypes.number.isRequired,
 	className: PropTypes.string,
 	label: PropTypes.string.isRequired,

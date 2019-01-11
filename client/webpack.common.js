@@ -19,7 +19,9 @@ module.exports = {
     modules: [appModules],
     alias: {
       components: path.resolve(path.join(process.cwd(), "components")),
-      containers: path.resolve(path.join(process.cwd(), "containers"))
+      containers: path.resolve(path.join(process.cwd(), "containers")),
+      actions: path.resolve(path.join(process.cwd(), "actions")),
+      reducers: path.resolve(path.join(process.cwd(), "reducers"))
     }, 
     extensions: [".js"] 
   },

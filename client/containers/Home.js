@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import style from '../sass/index.scss';
 
+import style from '../sass/index.scss';
 import Clock from 'components/Clock';
 
 console.log('STYLE', style);

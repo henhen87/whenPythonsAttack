@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as timeAction from 'actions/time';
 import Time from 'components/Time';
 
 const NEXT_NEW_YEAR = '1/1/2020';
@@ -24,10 +26,23 @@ class Clock extends Component {
 
 		return (
 			<div className="clock">
-				<Time  currentTime={this.state.currentTime} />
+				<Time {...this.props} currentTime={this.state.currentTime} />
 			</div>
 		);
 	}
 }
 
-export default Clock;
+const mapStateToProps = state => {
+	return {
+		seconds: state.time.seconds,
+		minutes: state.time.minutes,
+		hours: state.time.hours,
+		days: state.time.days
+	};
+};
+
+const mapDisptachToProps = dispatch => {
+	return bindActionCreators(timeAction, dispatch);
+};
+
+export default connect(mapStateToProps)(Clock);

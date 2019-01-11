@@ -39,7 +39,10 @@ class Time extends Component {
 	setFlipSecs = () => this.setState({ 
 			flipSecs: !this.state.flipSecs 
 		}, () => setTimeout(() => {
-			this.setState({ flipSecsBot: !this.state.flipSecsBot });
+			this.setState({ 
+				flipSecsBot: !this.state.flipSecsBot, 
+				flipMinBot: this._seconds === 0 ? true : false
+			});
 	}, 500))
 
 	initializeTime = () => {
@@ -49,12 +52,12 @@ class Time extends Component {
 	getSeconds = () => {
 		if (this._seconds === 0) {
 			this._minutes = this.getMinuntes();
-			this.setState({ flipMinBot: true });
 			return 59;
 		} else {
 			return this._seconds - 1;
 		}
 	}
+
 	getMinuntes = () => {
 		if (this._minutes === 0) {
 			this._hours = this.getHours();
@@ -63,6 +66,7 @@ class Time extends Component {
 			return this._minutes - 1;
 		}
 	}
+
 	getHours = () => {
 		if (this._hours === 0) {
 			this._days = this.getDays();
@@ -71,6 +75,7 @@ class Time extends Component {
 			return this._hours - 1;
 		}
 	}
+
 	getDays = () => {
 		if (this._days === 0) {
 			return 365;
@@ -80,6 +85,7 @@ class Time extends Component {
 	}
 
 	render() {
+		console.log('PROPS', this.props);
 		return [
 			<Digit key={0} className="day" digit={this._days} label="Days" />,
 			<Digit key={1}
@@ -89,12 +95,12 @@ class Time extends Component {
 			<Digit key={2}
 				className="min" 
 				flip={(this._seconds === 0)}
-				flipSecsBot={this.state.flipMinBot}
+				flipBot={this.state.flipMinBot}
 				digit={this._minutes} label="Minutes" />,
 			<Digit key={3}
 				className="sec" 
 				flip={this.state.flipSecs}
-				flipSecsBot={this.state.flipSecsBot}
+				flipBot={this.state.flipSecsBot}
 				digit={this._seconds} label="Seconds" />
 		];
 	}

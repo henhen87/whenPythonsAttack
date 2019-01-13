@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Digit = ({flip, flipBot, digit, ...props}) => {
+	console.log('wlena', props.lena)
 	const FLIP_CLASS = flip === true;
 	const FLIP_CLASS_BOT = flipBot === true;
 	return (
@@ -32,6 +33,7 @@ export const Digit = ({flip, flipBot, digit, ...props}) => {
 };
 
 Digit.propTypes = {
+	wlena: PropTypes.string,
 	flip: PropTypes.bool,
 	flipBot: PropTypes.bool,
 	digit: PropTypes.number.isRequired,

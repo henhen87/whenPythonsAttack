@@ -36,12 +36,21 @@ class Time extends Component {
 		clearInterval(this._botNumIntervalFunc);
 	}
 
+	componentDidUpdate() {
+		if (this._seconds === 0) {
+			setTimeout(() => {
+				this.setState({
+					flipMinBot: true 
+				})
+			}, 1000);
+		}
+	}
+
 	setFlipSecs = () => this.setState({ 
 			flipSecs: !this.state.flipSecs 
 		}, () => setTimeout(() => {
 			this.setState({ 
-				flipSecsBot: !this.state.flipSecsBot, 
-				flipMinBot: this._seconds === 0 ? true : false
+				flipSecsBot: !this.state.flipSecsBot
 			});
 	}, 500))
 
@@ -85,7 +94,6 @@ class Time extends Component {
 	}
 
 	render() {
-		console.log('PROPS', this.props);
 		return [
 			<Digit key={0} className="day" digit={this._days} label="Days" />,
 			<Digit key={1}
@@ -94,7 +102,7 @@ class Time extends Component {
 				digit={this._hours} label="Hours" />,
 			<Digit key={2}
 				className="min" 
-				flip={(this._seconds === 0)}
+				flip={(this._seconds === 0 && this.state.flipSecs)}
 				flipBot={this.state.flipMinBot}
 				digit={this._minutes} label="Minutes" />,
 			<Digit key={3}

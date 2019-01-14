@@ -45,4 +45,4 @@ const mapDisptachToProps = dispatch => {
 	return bindActionCreators(timeAction, dispatch);
 };
 
-export default connect(mapStateToProps)(Clock);
+export default connect(mapStateToProps, mapDisptachToProps)(Clock);

@@ -1,4 +1,4 @@
-# When Pythons Attack
+# :fire: When Pythons Attack
 
 #### Simple Python Application
 
